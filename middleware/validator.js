@@ -1,6 +1,7 @@
 import Joi from "joi";
 import SubscriptionSchema from "../models/subscription";
 import PlanSchema from "../models/plan";
+import ValidationError from '../errors/validation-error';
 
 let validators = {
   Subscription: {
@@ -50,7 +51,7 @@ export default function validationMiddleware(model, scope) {
     debugger;
     const validationResult = validate(model, req.body, scope);
     if (validationResult.error) {
-      throw new Error(validationResult.error.message);
+      throw new ValidationError(validationResult.error.message, model);
     } else {
       next();
     }

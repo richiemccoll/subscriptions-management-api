@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import asyncWrapper from '../utilities/async-wrapper';
 import SubscriptionsService from '../services/subscriptions-service';
+import validator from '../middleware/validator';
 
 const router = new Router();
 const subscriptionsService = new SubscriptionsService();
@@ -21,8 +22,8 @@ router.get('/:id', asyncWrapper(async (req, res) => {
 }));
 
 // POST api/subscriptions/
-router.post('/', asyncWrapper(async (req, res) => {
-    let subscription = await plansService.create(req.body);
+router.post('/', [validator('Subscription', 'default')], asyncWrapper(async (req, res) => {
+    let subscription = await subscriptionsService.create(req.body);
     res.send(subscription);
 }));
 
