@@ -5,7 +5,7 @@ const SubscriptionValidationSchema = Joi.object().keys({
     .positive()
     .required(),
   coupon: Joi.number()
-    .min()
+    .min(0)
     .max(100)
     .optional()
     .allow(null),

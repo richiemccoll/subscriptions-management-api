@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import asyncWrapper from '../utilities/async-wrapper';
 import PlansService from '../services/plans-service';
+import validator from '../middleware/validator';
 
 const router = new Router();
 const plansService = new PlansService();
@@ -21,7 +22,7 @@ router.get('/:id', asyncWrapper(async (req, res) => {
 }));
 
 // POST api/plans/
-router.post('/', asyncWrapper(async (req, res) => {
+router.post('/', [validator("Plan", 'default')], asyncWrapper(async (req, res) => {
     let plan = await plansService.create(req.body);
     res.send(plan);
 }));
