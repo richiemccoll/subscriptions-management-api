@@ -9,7 +9,8 @@ const SubscriptionModel = (sequelize, DataTypes) => {
       cardNumber: DataTypes.STRING,
       holderName: DataTypes.STRING,
       expirationDate: DataTypes.STRING,
-      cvv: DataTypes.STRING
+      cvv: DataTypes.STRING,
+      userId: DataTypes.INTEGER,
     },
     {}
   );
@@ -38,7 +39,8 @@ const SubscriptionValidationSchema = Joi.object().keys({
   cvv: Joi.string()
     .min(3)
     .max(3)
-    .required()
+    .required(),
+  userId: Joi.string().required(),  
 });
 
 export { SubscriptionValidationSchema, SubscriptionModel as default };
