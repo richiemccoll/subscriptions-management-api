@@ -1,17 +1,17 @@
 import Joi from "joi";
-import { SubscriptionSchema } from "../models/subscription";
-import { PlanSchema } from "../models/plan";
+import { SubscriptionValidationSchema } from "../models/subscription";
+import { PlanValidationSchema } from "../models/plan";
 import ValidationError from '../errors/validation-error';
 
 let validators = {
   Subscription: {
     scopes: {
-      default: SubscriptionSchema
+      default: SubscriptionValidationSchema
     }
   },
   Plan: {
     scopes: {
-      default: PlanSchema
+      default: PlanValidationSchema
     }
   }
 };
