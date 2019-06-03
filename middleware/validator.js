@@ -1,6 +1,6 @@
 import Joi from "joi";
-import SubscriptionSchema from "../models/subscription";
-import PlanSchema from "../models/plan";
+import { SubscriptionSchema } from "../models/subscription";
+import { PlanSchema } from "../models/plan";
 import ValidationError from '../errors/validation-error';
 
 let validators = {

@@ -41,4 +41,4 @@ const SubscriptionValidationSchema = Joi.object().keys({
     .required()
 });
 
-export { SubscriptionValidationSchema as default, SubscriptionModel };
+export { SubscriptionValidationSchema, SubscriptionModel as default };

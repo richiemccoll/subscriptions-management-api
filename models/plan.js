@@ -28,6 +28,6 @@ const PlanValidationSchema = Joi.object().keys({
 });
 
 export {
-  PlanValidationSchema as default,
-  PlanModel
+  PlanValidationSchema,
+  PlanModel as default
 }
