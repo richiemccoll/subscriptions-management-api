@@ -3,7 +3,7 @@ const path = require('path');
 
 if (!process.env.MYSQL_HOST) {
   dotenv.config({
-    path: path.join(__dirname, '..', 'env')
+    path: path.join(__dirname, '..', '.env')
   })
 }
 
