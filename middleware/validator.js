@@ -1,6 +1,7 @@
 import Joi from "joi";
 import { SubscriptionValidationSchema } from "../models/subscription";
 import { PlanValidationSchema } from "../models/plan";
+import { UserValidationSchema } from '../models/user';
 import ValidationError from '../errors/validation-error';
 
 let validators = {
@@ -12,6 +13,11 @@ let validators = {
   Plan: {
     scopes: {
       default: PlanValidationSchema
+    }
+  },
+  User: {
+    scopes: {
+      default: UserValidationSchema,
     }
   }
 };
