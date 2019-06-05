@@ -15,7 +15,7 @@ middleware(app);
 
 app.use("/api/plans", PlansController);
 app.use("/api/subscriptions", SubscriptionsController);
-app.use("/api/user/", UsersController);
+app.use("/api/auth/", UsersController);
 
 // Error handling must be defined AFTER all other middleware / routes
 errorHandler(app);
