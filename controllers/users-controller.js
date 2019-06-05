@@ -16,4 +16,17 @@ router.post(
   })
 );
 
+router.post(
+  "/sign-in",
+  [validator("User", "login")].asyncWrapper(async (req, res) => {
+    let { email, password } = req.body;
+    let token = await usersService.signIn(email, password);
+    if (!token) {
+        throw new AuthenticationError('Invalid Credentials');
+    } else {
+        res.send(token);    
+    }
+  })
+);
+
 export default router;

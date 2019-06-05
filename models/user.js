@@ -29,4 +29,11 @@ const UserValidationSchema = Joi.object().keys({
     .max(32)
 });
 
-export { UserValidationSchema, UserModel as default };
+const LoginValidationSchema = Joi.object().keys({
+  email: Joi.string()
+    .email()
+    .required(),
+  password: Joi.string().required()
+});
+
+export { UserValidationSchema, LoginValidationSchema, UserModel as default };

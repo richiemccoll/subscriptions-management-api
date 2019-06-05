@@ -1,7 +1,7 @@
 import Joi from "joi";
 import { SubscriptionValidationSchema } from "../models/subscription";
 import { PlanValidationSchema } from "../models/plan";
-import { UserValidationSchema } from '../models/user';
+import { UserValidationSchema, LoginValidationSchema } from '../models/user';
 import ValidationError from '../errors/validation-error';
 
 let validators = {
@@ -18,6 +18,7 @@ let validators = {
   User: {
     scopes: {
       default: UserValidationSchema,
+      login: LoginValidationSchema,
     }
   }
 };
