@@ -2,9 +2,12 @@ import { Router } from 'express';
 import asyncWrapper from '../utilities/async-wrapper';
 import SubscriptionsService from '../services/subscriptions-service';
 import validator from '../middleware/validator';
+import protectedRoute from '../middleware/protected-route';
 
 const router = new Router();
 const subscriptionsService = new SubscriptionsService();
+
+router.use(protectedRoute());
 
 // GET api/subscriptions/
 router.get('/', asyncWrapper(async (req, res) => {

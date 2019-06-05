@@ -2,9 +2,12 @@ import { Router } from 'express';
 import asyncWrapper from '../utilities/async-wrapper';
 import PlansService from '../services/plans-service';
 import validator from '../middleware/validator';
+import protectedRoute from '../middleware/protected-route';
 
 const router = new Router();
 const plansService = new PlansService();
+
+router.use(protectedRoute());
 
 // GET api/plans/
 router.get('/', asyncWrapper(async (req, res) => {
