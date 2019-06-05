@@ -5,6 +5,7 @@ import errorHandler from "./middleware/error-handling";
 
 import PlansController from "./controllers/plans-controller";
 import SubscriptionsController from "./controllers/subscriptions-controller";
+import UsersController from './controllers/users-controller';
 
 const PORT = process.env.PORT;
 
@@ -14,6 +15,7 @@ middleware(app);
 
 app.use("/api/plans", PlansController);
 app.use("/api/subscriptions", SubscriptionsController);
+app.use("/api/user/", UsersController);
 
 // Error handling must be defined AFTER all other middleware / routes
 errorHandler(app);
