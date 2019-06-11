@@ -11,7 +11,7 @@ export default function AuthMiddleware(app) {
       jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme("Bearer")
     },
     async (payload, done) => {
-      id = parseInt(payload.sub);
+      let id = parseInt(payload.sub);
       if (id) {
         done(null, id);
       } else {
